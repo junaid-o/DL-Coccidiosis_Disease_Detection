@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO, format="[%(asctime)s]: %(message)s:")
 
 # Provide Your Projec Name or You can keep it more generic so that you can use with other projects too
 
-project_name = "PoultryDiseaseDetector"
+project_name = "CoccidiosisDetector"
 
 list_of_files = [
     ".github/workflows/.gitkeep",

@@ -14,5 +14,5 @@ types-PyYAML
 scipy
 Flask
 Flask-Cors
-build   
+build
 #-e .

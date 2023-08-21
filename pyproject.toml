@@ -1,11 +1,10 @@
 [build-system]
 requires = ["setuptools>=61.0"]
-##requires = ["setuptools @ git+https://github.com/pypa/setuptools.git@main"]
 build-backend = "setuptools.build_meta"
 
 
 [project]
-name = "Coccidiosis Disease Detection"
+name = "CoccidiosisDetector"
 version = "0.0.1"
 authors = [{name = "junaid-o"}]
 description = "Coccidiosis Disease Detector Compatible With Python=3.10.11"
