@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+##requires = ["setuptools @ git+https://github.com/pypa/setuptools.git@main"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "Coccidiosis Disease Detection"
+version = "0.0.1"
+authors = [{name = "junaid-o"}]
+description = "Coccidiosis Disease Detector Compatible With Python=3.10.11"
+readme = "README.md"
+requires-python = ">=3.10.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+"Homepage" ="https://github.com/junaid-o/DL-Coccidiosis_Disease_Detection"
+"Bug Tracker" = "https://github.com/junaid-o/DL-Coccidiosis_Disease_Detection/issues"
