@@ -3,6 +3,9 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 
+[options.packages.find]
+where = "."
+
 [project]
 name = "CoccidiosisDetector"
 version = "0.0.1"

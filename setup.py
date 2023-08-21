@@ -1,6 +1,7 @@
+from importlib.resources import Package
 from typing import List
 from setuptools import setup, find_packages
-import setuptools
+
 
 
 with open("README.md", "r", encoding="utf-8") as f:
@@ -9,6 +10,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 # Declearing Variables for setup function
 PROJECT_REPO_NAME = "DL-Coccidiosis_Disease_Detection"
+PACKAGE_NAME = "CoccidiosisDetector"
 VERSION = "0.0.1"
 AUTHOR_USER_NAME = "junaid-o"
 DESCRIPTION = """Coccidiosis Disease Detector WebApp Compatible With Python=3.10.12"""
@@ -35,13 +37,13 @@ def get_requirements_list() ->  List[str]:
     with open(REQUIREMENTS_FILE_NAME) as requirement_file:
         return requirement_file.readlines()
 
-setup(name= PROJECT_REPO_NAME,
+setup(name= PACKAGE_NAME,
       version=VERSION,
       author=AUTHOR_USER_NAME,
       description=DESCRIPTION,
-      long_description=LONG_DESCRIPTION,
-      long_description_content= "text/markdown",      
-      packages= find_packages(where="."),
+      long_description=LONG_DESCRIPTION, 
+      package_dir={"": "src"},     
+      packages= find_packages(where="src"),
       install_requires=get_requirements_list(),
       license="MIT",
       classifiers = CLASSIFIERS,
