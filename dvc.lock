@@ -9,8 +9,8 @@ stages:
       size: 816
     - path: src/CoccidiosisDetector/pipeline/stage_01_data_ingestion.py
       hash: md5
-      md5: 72d7370587578acdeefdde69d6331572
-      size: 943
+      md5: e5115e364e1ebc8c6aca40304480f887
+      size: 1051
     outs:
     - path: artifacts/data_ingestion/Chicken-fecal-images
       hash: md5
@@ -26,8 +26,8 @@ stages:
       size: 816
     - path: src/CoccidiosisDetector/pipeline/stage_02_prepare_base_model.py
       hash: md5
-      md5: 98e95178b7fcc9ec5b8a3cf888a07ab6
-      size: 1033
+      md5: 4ef2541caf526d99c7caea89b6a17b7d
+      size: 1141
     params:
       params.yaml:
         CLASSES: 2
@@ -41,7 +41,7 @@ stages:
     outs:
     - path: artifacts/prepare_base_model
       hash: md5
-      md5: 5799860bcb4a00672b4eccddc57cd34d.dir
+      md5: d508eb61ecbcc2f3f206fd5928c9a88c.dir
       size: 118059248
       nfiles: 2
   training:
@@ -54,7 +54,7 @@ stages:
       nfiles: 390
     - path: artifacts/prepare_base_model
       hash: md5
-      md5: 5799860bcb4a00672b4eccddc57cd34d.dir
+      md5: d508eb61ecbcc2f3f206fd5928c9a88c.dir
       size: 118059248
       nfiles: 2
     - path: config/config.yaml
@@ -67,8 +67,8 @@ stages:
       size: 1025
     - path: src/CoccidiosisDetector/pipeline/stage_03_training.py
       hash: md5
-      md5: c20cc2922375f1156b6a2c9703c8083b
-      size: 1304
+      md5: 768b446b0fc3cb33ce3c52e28dafabe9
+      size: 1412
     params:
       params.yaml:
         AUGMENTATION: true
@@ -81,7 +81,7 @@ stages:
     outs:
     - path: artifacts/training/model.h5
       hash: md5
-      md5: a8e9fb141cfd4bbb7706aaae84e75d1d
+      md5: 76db93c2efc211af72f40da18e12dfad
       size: 59340720
   evaluation:
     cmd: python src/CoccidiosisDetector/pipeline/stage_04_evaluation.py
@@ -93,7 +93,7 @@ stages:
       nfiles: 390
     - path: artifacts/training/model.h5
       hash: md5
-      md5: a8e9fb141cfd4bbb7706aaae84e75d1d
+      md5: 76db93c2efc211af72f40da18e12dfad
       size: 59340720
     - path: config/config.yaml
       hash: md5
@@ -101,8 +101,8 @@ stages:
       size: 816
     - path: src/CoccidiosisDetector/pipeline/stage_04_evaluation.py
       hash: md5
-      md5: a75c6622e478d834c5d92e480495de22
-      size: 911
+      md5: a51ab6cd099bc8487c3d70609b5176ff
+      size: 1019
     params:
       params.yaml:
         BATCH_SIZE: 16
@@ -113,5 +113,5 @@ stages:
     outs:
     - path: scores.json
       hash: md5
-      md5: c77c55242ae9929f6ed54005d41f1d9e
-      size: 72
+      md5: bdc61d7c6c6d944b51eaded3cacd4b09
+      size: 58
