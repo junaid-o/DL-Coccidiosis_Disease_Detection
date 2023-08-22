@@ -189,6 +189,10 @@ To use the Coccidiosis Detection Web App, follow these steps:
 **Run from terminal:**
 
   ```bash
+  docker build -t <login server>/<Project Image Name>:latest .
+  ```
+
+  ```bash
   docker build -t chickenapp.azurecr.io/chicken:latest .
   ```
 
