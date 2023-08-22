@@ -79,6 +79,21 @@ To use the Coccidiosis Detection Web App, follow these steps:
 7. **View Results:**
    The app will display the classification results along with an indication of whether coccidiosis is detected or not.
 
+## Model Training
+
+   ```bash
+   python main.py
+   ```
+   or
+
+   ```bash
+   dvc repro
+   ```
+   
+   ```
+   http://localhost:8000/traing
+   ```
+   
 ## DVC Commands
 
 1. `dvc init` to initialize the dvc in the project dir
@@ -188,9 +203,9 @@ To use the Coccidiosis Detection Web App, follow these steps:
 
 **Run from terminal:**
 
-  ```bash
+  `
   docker build -t <login server>/<Project Image Name>:latest .
-  ```
+  `
 
   ```bash
   docker build -t chickenapp.azurecr.io/chicken:latest .
