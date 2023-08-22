@@ -83,3 +83,35 @@ stages:
       hash: md5
       md5: a8e9fb141cfd4bbb7706aaae84e75d1d
       size: 59340720
+  evaluation:
+    cmd: python src/CoccidiosisDetector/pipeline/stage_04_evaluation.py
+    deps:
+    - path: artifacts/data_ingestion/Chicken-fecal-images
+      hash: md5
+      md5: 9e1f8dd2eae3c29e9d635df89d438ae4.dir
+      size: 12207807
+      nfiles: 390
+    - path: artifacts/training/model.h5
+      hash: md5
+      md5: a8e9fb141cfd4bbb7706aaae84e75d1d
+      size: 59340720
+    - path: config/config.yaml
+      hash: md5
+      md5: d6a59d48c7f5c604619571b20887eff0
+      size: 816
+    - path: src/CoccidiosisDetector/pipeline/stage_04_evaluation.py
+      hash: md5
+      md5: a75c6622e478d834c5d92e480495de22
+      size: 911
+    params:
+      params.yaml:
+        BATCH_SIZE: 16
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+    outs:
+    - path: scores.json
+      hash: md5
+      md5: c77c55242ae9929f6ed54005d41f1d9e
+      size: 72
