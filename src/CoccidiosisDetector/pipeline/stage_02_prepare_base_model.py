@@ -1,6 +1,6 @@
 from CoccidiosisDetector.config.configuration import ConfigurationManager
 from CoccidiosisDetector.components.prepare_base_model import PrepareBaseModel
-from CoccidiosisDetector import logger
+from CoccidiosisDetector.logger import logging
 
 
 STAGE_NAME = "Prepare base model"
