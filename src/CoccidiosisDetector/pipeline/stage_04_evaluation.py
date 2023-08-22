@@ -1,7 +1,8 @@
+import sys
 from CoccidiosisDetector.config.configuration import ConfigurationManager
 from CoccidiosisDetector.components.evaluation import Evaluation
 from CoccidiosisDetector.logger import logging
-
+from CoccidiosisDetector.exception import CoccidiosisException
 
 
 STAGE_NAME = "Evaluation stage"
@@ -29,5 +30,5 @@ if __name__ == '__main__':
         logging.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
         logging.exception(e)
-        raise e
+        raise CoccidiosisException(e, sys) from e
             

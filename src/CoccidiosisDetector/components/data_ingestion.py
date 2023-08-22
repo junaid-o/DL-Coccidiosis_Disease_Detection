@@ -1,11 +1,12 @@
 import os
+import sys
 import urllib.request as request
 import zipfile
 from CoccidiosisDetector.logger import logging
 from CoccidiosisDetector.utils.utils import get_size
 from CoccidiosisDetector.entity.config_entity import DataIngestionConfig
 from pathlib import Path
-
+from CoccidiosisDetector.exception import CoccidiosisException
 
 class DataIngestion:
     def __init__(self, config: DataIngestionConfig):
@@ -14,15 +15,18 @@ class DataIngestion:
 
     
     def download_file(self):
-        if not os.path.exists(self.config.local_data_file):
-            filename, headers = request.urlretrieve(
-                url = self.config.source_URL,
-                filename = self.config.local_data_file
-            )
-            logging.info(f"{filename} download! with following info: \n{headers}")
-        else:
-            logging.info(f"File already exists of size: {get_size(Path(self.config.local_data_file))}")  
-
+        try:
+            if not os.path.exists(self.config.local_data_file):
+                filename, headers = request.urlretrieve(
+                    url = self.config.source_URL,
+                    filename = self.config.local_data_file
+                )
+                logging.info(f"{filename} download! with following info: \n{headers}")
+            else:
+                logging.info(f"File already exists of size: {get_size(Path(self.config.local_data_file))}")  
+        
+        except Exception as e:
+            raise CoccidiosisException(e, sys) from e
 
     
     def extract_zip_file(self):
