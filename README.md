@@ -22,7 +22,10 @@ The project employs transfer learning with the VGG16 architecture. Transfer lear
 
 For this project, a well-labeled dataset of coccidiosis-positive and coccidiosis-negative images was used for training and validation. The dataset was preprocessed to ensure consistency and appropriate formatting for training the model.
 
-## Workflows
+https://www.kaggle.com/datasets/allandclive/chicken-disease-1
+
+
+## Workflows for code writing
 
 1. Update config.yaml
 2. Update secrets.yaml [Optional]
@@ -41,8 +44,8 @@ To use the Coccidiosis Detection Web App, follow these steps:
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+   git clone https://github.com/junaid-o/DL-Coccidiosis_Disease_Detection.git
+   cd DL-Coccidiosis_Disease_Detection
    ```
 
 2. **Create a conda environment after opening the repository**
