@@ -25,17 +25,23 @@ For this project, a well-labeled dataset of coccidiosis-positive and coccidiosis
 https://www.kaggle.com/datasets/allandclive/chicken-disease-1
 
 
-## Workflows for code writing
+## **Tools & Techniques**
 
-1. Update config.yaml
-2. Update secrets.yaml [Optional]
-3. Update params.yaml
-4. Update the entity
-5. Update the configuration manager in src config
-6. Update the components
-7. Update the pipeline
-8. Update the main.py
-9. Update the dvc.yaml
+*   `Code versioning` using Git
+*   `Modular coding` with separate files for data ingestion, transformation, validation, training, evaluation, performance monitoring, model pusher, model configuration, constants, secret keys, artifacts etc
+*   `DVC Trainnig Pipeline`
+*   `CI / CD Pipeline` using GitHub Actions
+*   `Docker` for creating container
+*   Custome `logger`
+*   Custom `Exception Handler`
+*   `Package building` using setuptools
+*   `Deplyment` tested on **Auzre**, and on **AWS EC2 instance CI/CD** using Github Action Runner
+
+
+## **Deployments**
+
+*   Azure
+*   AWS EC2
 
 ## Installation and Usage
 
@@ -91,7 +97,7 @@ To use the Coccidiosis Detection Web App, follow these steps:
    ```
    
    ```
-   http://localhost:8000/traing
+   http://localhost:8000/train
    ```
    
 ## DVC Commands
@@ -99,6 +105,61 @@ To use the Coccidiosis Detection Web App, follow these steps:
 1. `dvc init` to initialize the dvc in the project dir
 2. `dvc repro` to trigger the training pipeline
 3. `dvc dag` to visualize the pipline architechture
+
+
+# Docker
+
+A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Docker images can be used to create containers, which are isolated environments that run your application. This is useful because it ensures that your application runs in the same environment regardless of where it is being deployed.
+
+To build and run this project using Docker, follow these steps:
+
+1.  Install Docker on your machine if you haven't already.
+2.  Open a terminal window and navigate to the project root directory.
+3.  Build the Docker image by running the following command:
+
+    ```
+    docker build -t <image-name>:<version> <location-of-docker-file for curren directory just add dot (.)>
+
+    ```
+    or
+
+    ```
+    docker build -t <image-name>:<version> .
+    
+    ```
+
+4.  To Check List of Docker Images
+    ```
+    docker images
+    ```    
+
+5.  Start a container using the following command, replacing <image-name> and <version> with the values you used in step 3:
+
+    ```
+    docker run -p <host-port>:<container-port> <image-name>:<version>
+
+    ```
+
+    or
+
+    ```
+    docker run -p 5000:5000 -e PORT=5000 <Image-ID>
+    ```
+
+6.  Open a web browser and go to `http://localhost:<host-port>` to see the application running.
+
+7.  Check Running Containers in docker
+
+    ```
+    docker ps
+    ```
+
+8.  Stop Docker Container
+
+    ```
+    docker stop <container_id>
+    ```    
+
 
 # AWS-CICD-Deployment-with-Github-Actions
 
@@ -226,3 +287,88 @@ To use the Coccidiosis Detection Web App, follow these steps:
 2. Push the Docker image to Container Registry
 3. Launch the Web App Server in Azure 
 4. Pull the Docker image from the container registry to Web App server and run 
+
+# Other Instructions: Workflows for code writing
+
+1. Update config.yaml
+2. Update secrets.yaml [Optional]
+3. Update params.yaml
+4. Update the entity
+5. Update the configuration manager in src config
+6. Update the components
+7. Update the pipeline
+8. Update the main.py
+9. Update the dvc.yaml
+
+# Project Structure
+
+```
+DL-Coccidiosis_Disease_Detection
+├─ .dvc
+├─ .dvcignore
+├─ .git
+├─ .github
+│  └─ workflows
+│     ├─ .gitkeep
+│     ├─ main.yaml
+│     └─ main_chickenapp.yml
+├─ .gitignore
+├─ app.py
+├─ config
+│  └─ config.yaml
+├─ Dockerfile
+├─ dvc.lock
+├─ dvc.yaml
+├─ LICENSE
+├─ logs
+├─ main.py
+├─ params.yaml
+├─ pyproject.toml
+├─ README.md
+├─ requirements.txt
+├─ research
+│  ├─ 01_data_ingestion.ipynb
+│  ├─ 02_prepare_base_model.ipynb
+│  ├─ 03_prepare_callbacks.ipynb
+│  ├─ 04_training.ipynb
+│  ├─ 05_model_evaluation.ipynb
+│  └─ trials.ipynb
+├─ scores.json
+├─ setup.py
+├─ src
+│  └─ CoccidiosisDetector
+│     ├─ components
+│     │  ├─ data_ingestion.py
+│     │  ├─ evaluation.py
+│     │  ├─ prepare_base_model.py
+│     │  ├─ prepare_callbacks.py
+│     │  ├─ training.py
+│     │  └─ __init__.py
+│     ├─ config
+│     │  ├─ configuration.py
+│     │  └─ __init__.py
+│     ├─ constants
+│     │  └─ __init__.py
+│     ├─ entity
+│     │  ├─ config_entity.py
+│     │  └─ __init__.py
+│     ├─ exception
+│     │  └─ __init__.py
+│     ├─ logger
+│     │  └─ __init__.py
+│     ├─ pipeline
+│     │  ├─ predict.py
+│     │  ├─ stage_01_data_ingestion.py
+│     │  ├─ stage_02_prepare_base_model.py
+│     │  ├─ stage_03_training.py
+│     │  ├─ stage_04_evaluation.py
+│     │  └─ __init__.py
+│     ├─ utils
+│     │  ├─ utils.py
+│     │  └─ __init__.py
+│     └─ __init__.py
+├─ template.py
+└─ templates
+   └─ index.html
+
+```
