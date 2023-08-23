@@ -28,7 +28,7 @@ https://www.kaggle.com/datasets/allandclive/chicken-disease-1
 ## **Tools & Techniques**
 
 *   `Code versioning` using Git
-*   `Modular coding` with separate files for data ingestion, transformation, validation, training, evaluation, performance monitoring, model pusher, model configuration, constants, secret keys, artifacts etc
+*   `Modular coding` with separate files for data ingestion, training, evaluation, Configuration, constants, secret keys, artifacts etc
 *   `DVC Trainnig Pipeline`
 *   `CI / CD Pipeline` using GitHub Actions
 *   `Docker` for creating container
