@@ -1,5 +1,9 @@
 # Coccidiosis Disease Detections- A Deep Learning Approach
 
+[![Python 3.10.12](https://img.shields.io/badge/python-3.10.12-blue.svg)](https://www.python.org/downloads/release/python-31012/)
+![Static Badge](https://img.shields.io/badge/Tensorflow-orange.svg)
+
+
 This project aims to detect the presence of coccidiosis, a common parasitic disease in Poultry(Chickens), using deep learning techniques. The app utilizes a transfer learning approach with the VGG16 architecture to classify input images as either indicative of coccidiosis or not.
 
 ## Problem Statement
